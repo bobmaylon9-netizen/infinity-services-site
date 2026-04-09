@@ -8,13 +8,13 @@
 <style>
 body {
   margin: 0;
-  background: radial-gradient(circle at top, #0f172a, #020617);
-  font-family: Arial, sans-serif;
+  font-family: 'Segoe UI', sans-serif;
+  background: radial-gradient(circle at top, #020617, #000);
   color: white;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
-/* Animação inicial */
+/* INTRO */
 .intro {
   position: fixed;
   width: 100%;
@@ -35,87 +35,106 @@ body {
   }
 }
 
-/* Celular */
+/* iPhone */
 .phone {
-  width: 260px;
-  height: 520px;
-  border-radius: 40px;
-  background: linear-gradient(145deg, #1e293b, #020617);
-  box-shadow: 0 0 40px rgba(99,102,241,0.6);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  width: 280px;
+  height: 560px;
+  border-radius: 45px;
+  background: linear-gradient(160deg, #111827, #000);
+  box-shadow: 
+    0 0 60px rgba(99,102,241,0.5),
+    inset 0 0 20px rgba(255,255,255,0.05);
+  padding: 10px;
   transform: scale(0.5);
   animation: zoomIn 2s ease forwards;
 }
 
 @keyframes zoomIn {
-  to {
-    transform: scale(1);
-  }
+  to { transform: scale(1); }
 }
 
-/* Tela do celular */
+/* Tela */
 .screen {
-  width: 90%;
-  height: 90%;
-  border-radius: 30px;
-  background: black;
+  width: 100%;
+  height: 100%;
+  border-radius: 35px;
+  background: linear-gradient(180deg, #020617, #020617);
   display: flex;
   justify-content: center;
   align-items: center;
-  text-align: center;
+  position: relative;
+  overflow: hidden;
 }
 
+/* Glow animado */
+.screen::before {
+  content: "";
+  position: absolute;
+  width: 300%;
+  height: 300%;
+  background: radial-gradient(circle, rgba(99,102,241,0.3), transparent);
+  animation: rotate 8s linear infinite;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Texto */
 .screen h1 {
+  position: relative;
   font-size: 22px;
-  color: #6366f1;
-  animation: glow 2s infinite alternate;
+  z-index: 2;
+  color: #818cf8;
+  text-shadow: 0 0 20px #6366f1;
 }
 
-@keyframes glow {
-  from { text-shadow: 0 0 10px #6366f1; }
-  to { text-shadow: 0 0 25px #6366f1; }
-}
-
-/* Conteúdo principal */
+/* MAIN */
 .main {
   text-align: center;
-  padding: 100px 20px;
+  padding: 120px 20px;
+  opacity: 0;
+  animation: showMain 1s ease forwards;
+  animation-delay: 3.5s;
+}
+
+@keyframes showMain {
+  to { opacity: 1; }
 }
 
 .main h2 {
-  font-size: 40px;
-  margin-bottom: 10px;
+  font-size: 42px;
 }
 
 .main p {
-  color: #94a3b8;
   max-width: 600px;
-  margin: 0 auto;
+  margin: 20px auto;
+  color: #9ca3af;
 }
 
+/* BOTÃO */
 .btn {
   margin-top: 30px;
-  display: inline-block;
-  padding: 14px 28px;
-  background: #6366f1;
-  border-radius: 10px;
-  text-decoration: none;
+  padding: 14px 30px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #6366f1, #4f46e5);
   color: white;
+  text-decoration: none;
   font-weight: bold;
+  box-shadow: 0 0 20px rgba(99,102,241,0.5);
   transition: 0.3s;
 }
 
 .btn:hover {
-  background: #4f46e5;
+  transform: scale(1.05);
 }
 </style>
 </head>
 
 <body>
 
-<!-- Intro com celular -->
+<!-- INTRO -->
 <div class="intro">
   <div class="phone">
     <div class="screen">
@@ -124,15 +143,16 @@ body {
   </div>
 </div>
 
-<!-- Site -->
+<!-- SITE -->
 <div class="main">
   <h2>Infinity Services</h2>
   <p>
     Premium digital access and exclusive private member platform. 
-    We provide curated digital experiences for users worldwide.
+    Experience curated content and next-level digital services.
   </p>
 
-  <a href="#" class="btn">Get Access</a>
+  <!-- COLOCA SEU LINK AQUI -->
+  <a href="#" class="btn">Enter Private Access</a>
 </div>
 
 </body>
