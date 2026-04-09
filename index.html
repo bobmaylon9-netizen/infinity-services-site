@@ -11,7 +11,6 @@ body {
   font-family: 'Segoe UI', sans-serif;
   background: radial-gradient(circle at top, #020617, #000);
   color: white;
-  overflow: hidden;
 }
 
 /* INTRO */
@@ -29,21 +28,15 @@ body {
 }
 
 @keyframes fadeOut {
-  to {
-    opacity: 0;
-    visibility: hidden;
-  }
+  to { opacity: 0; visibility: hidden; }
 }
 
-/* iPhone */
 .phone {
   width: 280px;
   height: 560px;
   border-radius: 45px;
   background: linear-gradient(160deg, #111827, #000);
-  box-shadow: 
-    0 0 60px rgba(99,102,241,0.5),
-    inset 0 0 20px rgba(255,255,255,0.05);
+  box-shadow: 0 0 60px rgba(99,102,241,0.5);
   padding: 10px;
   transform: scale(0.5);
   animation: zoomIn 2s ease forwards;
@@ -53,67 +46,43 @@ body {
   to { transform: scale(1); }
 }
 
-/* Tela */
 .screen {
   width: 100%;
   height: 100%;
   border-radius: 35px;
-  background: linear-gradient(180deg, #020617, #020617);
+  background: black;
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
-  overflow: hidden;
 }
 
-/* Glow animado */
-.screen::before {
-  content: "";
-  position: absolute;
-  width: 300%;
-  height: 300%;
-  background: radial-gradient(circle, rgba(99,102,241,0.3), transparent);
-  animation: rotate 8s linear infinite;
-}
-
-@keyframes rotate {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-/* Texto */
 .screen h1 {
-  position: relative;
-  font-size: 22px;
-  z-index: 2;
   color: #818cf8;
   text-shadow: 0 0 20px #6366f1;
 }
 
 /* MAIN */
-.main {
+.container {
+  padding: 100px 20px;
   text-align: center;
-  padding: 120px 20px;
-  opacity: 0;
-  animation: showMain 1s ease forwards;
-  animation-delay: 3.5s;
 }
 
-@keyframes showMain {
-  to { opacity: 1; }
+h1, h2 {
+  margin-bottom: 10px;
 }
 
-.main h2 {
-  font-size: 42px;
-}
-
-.main p {
-  max-width: 600px;
-  margin: 20px auto;
+p {
+  max-width: 700px;
+  margin: 10px auto;
   color: #9ca3af;
 }
 
-/* BOTÃO */
+/* SECTIONS */
+.section {
+  margin-top: 80px;
+}
+
+/* BUTTON */
 .btn {
   margin-top: 30px;
   padding: 14px 30px;
@@ -122,12 +91,15 @@ body {
   color: white;
   text-decoration: none;
   font-weight: bold;
-  box-shadow: 0 0 20px rgba(99,102,241,0.5);
-  transition: 0.3s;
+  display: inline-block;
 }
 
-.btn:hover {
-  transform: scale(1.05);
+/* FOOTER */
+footer {
+  margin-top: 100px;
+  padding: 20px;
+  font-size: 14px;
+  color: #6b7280;
 }
 </style>
 </head>
@@ -144,16 +116,56 @@ body {
 </div>
 
 <!-- SITE -->
-<div class="main">
-  <h2>Infinity Services</h2>
+<div class="container">
+
+  <h1>Infinity Services</h1>
   <p>
-    Premium digital access and exclusive private member platform. 
-    Experience curated content and next-level digital services.
+    A premium digital platform providing exclusive access to curated content, 
+    private communities, and personalized online experiences.
   </p>
 
-  <!-- COLOCA SEU LINK AQUI -->
   <a href="#" class="btn">Enter Private Access</a>
+
+  <!-- SOBRE -->
+  <div class="section">
+    <h2>About Us</h2>
+    <p>
+      Infinity Services is dedicated to delivering high-quality digital experiences 
+      for users seeking privacy, exclusivity, and premium content. Our platform 
+      connects members to curated materials and private access environments.
+    </p>
+  </div>
+
+  <!-- BENEFÍCIOS -->
+  <div class="section">
+    <h2>What We Offer</h2>
+    <p>✔ Exclusive digital content</p>
+    <p>✔ Private member-only access</p>
+    <p>✔ Secure and confidential experience</p>
+    <p>✔ Continuous updates and new content</p>
+  </div>
+
+  <!-- MISSÃO -->
+  <div class="section">
+    <h2>Our Mission</h2>
+    <p>
+      Our mission is to provide a safe, premium, and seamless environment 
+      where users can access exclusive digital services with full privacy 
+      and convenience.
+    </p>
+  </div>
+
+  <!-- CONTATO -->
+  <div class="section">
+    <h2>Contact</h2>
+    <p>Email: contact@infinityservices.com</p>
+  </div>
+
 </div>
+
+<footer>
+  © 2026 Infinity Services. All rights reserved.
+</footer>
 
 </body>
 </html>
