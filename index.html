@@ -8,9 +8,9 @@
 <style>
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: black;
-  color: white;
+  font-family: 'Segoe UI', sans-serif;
+  background: radial-gradient(circle at top, #0a0a0a, #000);
+  color: #f5f5f5;
 }
 
 /* INTRO */
@@ -27,89 +27,120 @@ body {
   animation-delay: 3s;
 }
 
-.logo {
-  font-size: 40px;
-  letter-spacing: 4px;
-  color: gold;
-  animation: glow 2s infinite alternate;
-}
-
-@keyframes glow {
-  from { text-shadow: 0 0 10px gold; }
-  to { text-shadow: 0 0 40px gold; }
-}
-
 @keyframes fadeOut {
   to { opacity: 0; visibility: hidden; }
 }
 
-/* HERO */
-.hero {
-  height: 100vh;
-  background: linear-gradient(to top, black, transparent),
-              url('https://images.unsplash.com/photo-1517602302552-471fe67acf66') center/cover;
+/* PHONE */
+.phone {
+  width: 280px;
+  height: 560px;
+  border-radius: 45px;
+  background: linear-gradient(160deg, #1a1a1a, #000);
+  box-shadow: 
+    0 0 60px rgba(255,215,0,0.4),
+    inset 0 0 20px rgba(255,255,255,0.05);
+  padding: 10px;
+  transform: scale(0.5);
+  animation: zoomIn 2s ease forwards;
+}
+
+@keyframes zoomIn {
+  to { transform: scale(1); }
+}
+
+/* SCREEN */
+.screen {
+  width: 100%;
+  height: 100%;
+  border-radius: 35px;
+  background: black;
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  padding: 40px;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
 }
 
-.hero h1 {
-  font-size: 50px;
+/* GOLD ANIMATION */
+.screen::before {
+  content: "";
+  position: absolute;
+  width: 300%;
+  height: 300%;
+  background: radial-gradient(circle, rgba(255,215,0,0.3), transparent);
+  animation: rotate 8s linear infinite;
 }
 
-.hero p {
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.screen h1 {
+  position: relative;
+  color: gold;
+  text-shadow: 0 0 20px gold;
+}
+
+/* MAIN */
+.container {
+  padding: 100px 20px;
+  text-align: center;
+}
+
+h1 {
+  font-size: 44px;
+  background: linear-gradient(90deg, gold, #ffd700, #bfa100);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+h2 {
+  color: gold;
+}
+
+p {
+  max-width: 700px;
+  margin: 10px auto;
+  color: #cfcfcf;
+}
+
+/* CARDS */
+.card {
+  margin: 40px auto;
+  padding: 30px;
   max-width: 500px;
-  color: #ccc;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.03);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,215,0,0.2);
+  box-shadow: 0 0 20px rgba(255,215,0,0.1);
 }
 
 /* BUTTON */
 .btn {
-  margin-top: 20px;
-  padding: 14px 28px;
-  background: gold;
+  margin-top: 30px;
+  padding: 14px 32px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, gold, #bfa100);
   color: black;
-  border-radius: 8px;
-  text-decoration: none;
   font-weight: bold;
-}
-
-/* SCROLL SECTION */
-.section {
-  padding: 60px 20px;
-}
-
-.row {
-  display: flex;
-  overflow-x: auto;
-  gap: 10px;
-}
-
-.card {
-  min-width: 200px;
-  height: 300px;
-  background: #111;
-  border-radius: 10px;
+  text-decoration: none;
+  display: inline-block;
   transition: 0.3s;
 }
 
-.card:hover {
-  transform: scale(1.1);
-}
-
-/* ESCASSEZ */
-.alert {
-  background: rgba(255,0,0,0.1);
-  padding: 15px;
-  text-align: center;
-  color: #ff4d4d;
-  margin-top: 20px;
+.btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px gold;
 }
 
 /* FOOTER */
 footer {
+  margin-top: 100px;
   padding: 20px;
-  text-align: center;
+  font-size: 14px;
   color: #777;
 }
 </style>
@@ -119,42 +150,57 @@ footer {
 
 <!-- INTRO -->
 <div class="intro">
-  <div class="logo">INFINITY SERVICES</div>
+  <div class="phone">
+    <div class="screen">
+      <h1>Infinity Services</h1>
+    </div>
+  </div>
 </div>
 
-<!-- HERO -->
-<div class="hero">
-  <h1>Private Premium Access</h1>
+<!-- MAIN -->
+<div class="container">
+
+  <h1>Infinity Services</h1>
   <p>
-    Enter a curated digital experience designed for users seeking exclusive, 
-    private, and premium-level content.
+    Premium digital platform offering exclusive access to private content 
+    and curated online experiences.
   </p>
 
-  <!-- COLOCA SEU LINK -->
-  <a href="#" class="btn">Enter Now</a>
+  <a href="#" class="btn">Enter Private Access</a>
 
-  <div class="alert">
-    ⚠ Limited access available – only a few spots remaining
+  <!-- ABOUT -->
+  <div class="card">
+    <h2>About Us</h2>
+    <p>
+      Infinity Services delivers high-end digital access for users seeking 
+      exclusive, secure, and premium content experiences.
+    </p>
   </div>
-</div>
 
-<!-- CONTENT -->
-<div class="section">
-  <h2>Featured Content</h2>
-  <div class="row">
-    <div class="card"></div>
-    <div class="card"></div>
-    <div class="card"></div>
-    <div class="card"></div>
+  <!-- SERVICES -->
+  <div class="card">
+    <h2>What We Offer</h2>
+    <p>✔ Premium digital content</p>
+    <p>✔ Private member-only access</p>
+    <p>✔ Secure and confidential environment</p>
+    <p>✔ Continuous updates</p>
   </div>
-</div>
 
-<div class="section">
-  <h2>Why Choose Us</h2>
-  <p>✔ Exclusive curated content</p>
-  <p>✔ Private access environment</p>
-  <p>✔ Secure and confidential</p>
-  <p>✔ Premium experience</p>
+  <!-- MISSION -->
+  <div class="card">
+    <h2>Our Mission</h2>
+    <p>
+      To provide a luxury-level digital experience combining privacy, quality, 
+      and innovation for our global users.
+    </p>
+  </div>
+
+  <!-- CONTACT -->
+  <div class="card">
+    <h2>Contact</h2>
+    <p>Email: contact@infinityservices.com</p>
+  </div>
+
 </div>
 
 <footer>
