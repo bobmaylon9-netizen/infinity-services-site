@@ -8,8 +8,8 @@
 <style>
 body {
   margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: radial-gradient(circle at top, #020617, #000);
+  font-family: Arial, sans-serif;
+  background: black;
   color: white;
 }
 
@@ -27,79 +27,90 @@ body {
   animation-delay: 3s;
 }
 
+.logo {
+  font-size: 40px;
+  letter-spacing: 4px;
+  color: gold;
+  animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+  from { text-shadow: 0 0 10px gold; }
+  to { text-shadow: 0 0 40px gold; }
+}
+
 @keyframes fadeOut {
   to { opacity: 0; visibility: hidden; }
 }
 
-.phone {
-  width: 280px;
-  height: 560px;
-  border-radius: 45px;
-  background: linear-gradient(160deg, #111827, #000);
-  box-shadow: 0 0 60px rgba(99,102,241,0.5);
-  padding: 10px;
-  transform: scale(0.5);
-  animation: zoomIn 2s ease forwards;
-}
-
-@keyframes zoomIn {
-  to { transform: scale(1); }
-}
-
-.screen {
-  width: 100%;
-  height: 100%;
-  border-radius: 35px;
-  background: black;
+/* HERO */
+.hero {
+  height: 100vh;
+  background: linear-gradient(to top, black, transparent),
+              url('https://images.unsplash.com/photo-1517602302552-471fe67acf66') center/cover;
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
+  padding: 40px;
 }
 
-.screen h1 {
-  color: #818cf8;
-  text-shadow: 0 0 20px #6366f1;
+.hero h1 {
+  font-size: 50px;
 }
 
-/* MAIN */
-.container {
-  padding: 100px 20px;
-  text-align: center;
-}
-
-h1, h2 {
-  margin-bottom: 10px;
-}
-
-p {
-  max-width: 700px;
-  margin: 10px auto;
-  color: #9ca3af;
-}
-
-/* SECTIONS */
-.section {
-  margin-top: 80px;
+.hero p {
+  max-width: 500px;
+  color: #ccc;
 }
 
 /* BUTTON */
 .btn {
-  margin-top: 30px;
-  padding: 14px 30px;
-  border-radius: 12px;
-  background: linear-gradient(135deg, #6366f1, #4f46e5);
-  color: white;
+  margin-top: 20px;
+  padding: 14px 28px;
+  background: gold;
+  color: black;
+  border-radius: 8px;
   text-decoration: none;
   font-weight: bold;
-  display: inline-block;
+}
+
+/* SCROLL SECTION */
+.section {
+  padding: 60px 20px;
+}
+
+.row {
+  display: flex;
+  overflow-x: auto;
+  gap: 10px;
+}
+
+.card {
+  min-width: 200px;
+  height: 300px;
+  background: #111;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.1);
+}
+
+/* ESCASSEZ */
+.alert {
+  background: rgba(255,0,0,0.1);
+  padding: 15px;
+  text-align: center;
+  color: #ff4d4d;
+  margin-top: 20px;
 }
 
 /* FOOTER */
 footer {
-  margin-top: 100px;
   padding: 20px;
-  font-size: 14px;
-  color: #6b7280;
+  text-align: center;
+  color: #777;
 }
 </style>
 </head>
@@ -108,59 +119,42 @@ footer {
 
 <!-- INTRO -->
 <div class="intro">
-  <div class="phone">
-    <div class="screen">
-      <h1>Infinity Services</h1>
-    </div>
+  <div class="logo">INFINITY SERVICES</div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <h1>Private Premium Access</h1>
+  <p>
+    Enter a curated digital experience designed for users seeking exclusive, 
+    private, and premium-level content.
+  </p>
+
+  <!-- COLOCA SEU LINK -->
+  <a href="#" class="btn">Enter Now</a>
+
+  <div class="alert">
+    ⚠ Limited access available – only a few spots remaining
   </div>
 </div>
 
-<!-- SITE -->
-<div class="container">
-
-  <h1>Infinity Services</h1>
-  <p>
-    A premium digital platform providing exclusive access to curated content, 
-    private communities, and personalized online experiences.
-  </p>
-
-  <a href="#" class="btn">Enter Private Access</a>
-
-  <!-- SOBRE -->
-  <div class="section">
-    <h2>About Us</h2>
-    <p>
-      Infinity Services is dedicated to delivering high-quality digital experiences 
-      for users seeking privacy, exclusivity, and premium content. Our platform 
-      connects members to curated materials and private access environments.
-    </p>
+<!-- CONTENT -->
+<div class="section">
+  <h2>Featured Content</h2>
+  <div class="row">
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>
   </div>
+</div>
 
-  <!-- BENEFÍCIOS -->
-  <div class="section">
-    <h2>What We Offer</h2>
-    <p>✔ Exclusive digital content</p>
-    <p>✔ Private member-only access</p>
-    <p>✔ Secure and confidential experience</p>
-    <p>✔ Continuous updates and new content</p>
-  </div>
-
-  <!-- MISSÃO -->
-  <div class="section">
-    <h2>Our Mission</h2>
-    <p>
-      Our mission is to provide a safe, premium, and seamless environment 
-      where users can access exclusive digital services with full privacy 
-      and convenience.
-    </p>
-  </div>
-
-  <!-- CONTATO -->
-  <div class="section">
-    <h2>Contact</h2>
-    <p>Email: contact@infinityservices.com</p>
-  </div>
-
+<div class="section">
+  <h2>Why Choose Us</h2>
+  <p>✔ Exclusive curated content</p>
+  <p>✔ Private access environment</p>
+  <p>✔ Secure and confidential</p>
+  <p>✔ Premium experience</p>
 </div>
 
 <footer>
